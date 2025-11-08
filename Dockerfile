@@ -1,27 +1,25 @@
-# Empezar con la imagen oficial de n8n
+# 1. Empezar con la imagen oficial de n8n
 FROM n8nio/n8n:latest
 
-# Cambiar a usuario root para instalar paquetes y cambiar permisos
+# 2. Cambiar a usuario root temporalmente para preparar el entorno
 USER root
 
-# Instalar git, que puede ser necesario
-RUN apk add --update --no-cache git
-
-# Ir al directorio donde n8n busca los nodos personalizados
+# 3. Establecer el directorio de trabajo donde n8n busca los nodos
 WORKDIR /home/node/.n8n/
 
-# Copiar el código de tu nodo personalizado
+# 4. Copiar todos los archivos de tu proyecto al directorio de trabajo
 COPY . .
 
-# --- LA LÍNEA CLAVE DE LA SOLUCIÓN ---
-# Asegurarse de que el usuario 'node' sea el dueño de todos los archivos copiados
+# 5. Darle la propiedad de todos estos archivos al usuario 'node'
+# Esto es VITAL para que los siguientes comandos no fallen por permisos.
 RUN chown -R node:node /home/node/.n8n/
 
-# Cambiar de vuelta al usuario 'node' por seguridad antes de ejecutar npm
+# 6. Cambiar de vuelta al usuario 'node' por seguridad
 USER node
 
-# Instalar las dependencias de tu nodo personalizado
+# 7. Instalar las dependencias de tu nodo (desde package.json)
 RUN npm install
 
-# Vincular tu nodo para que n8n lo reconozca
-RUN npm link
+# 8. CONSTRUIR el código. Este es el paso clave que faltaba.
+# Convierte tus archivos .ts a .js para que n8n pueda ejecutarlos.
+RUN npm run build
