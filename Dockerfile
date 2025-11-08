@@ -11,15 +11,14 @@ WORKDIR /home/node/.n8n/
 COPY . .
 
 # 5. Darle la propiedad de todos estos archivos al usuario 'node'
-# Esto es VITAL para que los siguientes comandos no fallen por permisos.
 RUN chown -R node:node /home/node/.n8n/
 
 # 6. Cambiar de vuelta al usuario 'node' por seguridad
 USER node
 
-# 7. Instalar las dependencias de tu nodo (desde package.json)
-RUN npm install
+# 7. --- LA CORRECCIÓN ESTÁ AQUÍ ---
+# Instalar TODAS las dependencias, incluidas las devDependencies necesarias para el build.
+RUN npm install --include=dev
 
-# 8. CONSTRUIR el código. Este es el paso clave que faltaba.
-# Convierte tus archivos .ts a .js para que n8n pueda ejecutarlos.
+# 8. Construir el código de TypeScript a JavaScript.
 RUN npm run build
