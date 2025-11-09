@@ -1,5 +1,5 @@
 {
-    "name": "@llamaindex/n8n-nodes-llamacloud",
+    "name": "@llamaindex/n8n-llamacloud",
     "version": "1.0.0",
     "description": "LlamaCloud integration with n8n",
     "keywords": [
