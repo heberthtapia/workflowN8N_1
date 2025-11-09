@@ -1,5 +1,5 @@
 {
-    "name": "@llamaindex/n8n-llamacloud",
+    "name": "n8n-llamacloud",
     "version": "1.0.0",
     "description": "LlamaCloud integration with n8n",
     "keywords": [
@@ -26,7 +26,7 @@
     },
     "main": "index.js",
     "scripts": {
-        "build": "npx rimraf dist && tsc && gulp build:icons",
+        "build": "npx rimraf dist && tsc",
         "dev": "tsc --watch",
         "format": "prettier nodes credentials --write",
         "lint": "eslint nodes credentials package.json",
