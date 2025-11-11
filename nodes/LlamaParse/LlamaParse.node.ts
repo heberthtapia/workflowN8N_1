@@ -112,7 +112,7 @@ export class LlamaParse implements INodeType {
                     const documents = await reader.loadData(filePath);
                     
                     for (let j = 0; j < documents.length; j++) {
-                        returnData.push(documents[i].toJSON())
+                        returnData.push(documents[j].toJSON())
                     }    
                 }
             }

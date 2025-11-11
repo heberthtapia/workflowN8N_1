@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: n8n-llamacloud
+    env: docker
+    plan: starter
+    docker:
+      dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Añade aquí las variables que requieras; configura secretos desde la UI de Render

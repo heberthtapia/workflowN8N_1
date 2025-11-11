@@ -4,7 +4,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es2019",
-    "lib": ["es2019", "es2020", "es2022.error"],
+    "lib": ["es2019", "es2020", "es2022", "DOM"],
     "removeComments": true,
     "useUnknownInCatchVariables": false,
     "forceConsistentCasingInFileNames": true,
@@ -27,14 +27,13 @@
     "credentials/**/*",
     "nodes/**/*",
     "nodes/**/*.json",
-    "package.json",
-		"nodes/**/*.ts",
-		"credentials/**/*.ts",
-		"index.ts"
+    "nodes/**/*.ts",
+    "credentials/**/*.ts",
+    "index.ts"
   ],
   "exclude": [
     "node_modules",
     "dist",
-		"package.json"
+    "package.json"
   ]
 }

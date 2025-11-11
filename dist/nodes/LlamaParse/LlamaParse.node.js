@@ -96,7 +96,7 @@ class LlamaParse {
                     const reader = new llamaindex_1.LlamaParseReader({ resultType: "markdown", apiKey: apiKey });
                     const documents = await reader.loadData(filePath);
                     for (let j = 0; j < documents.length; j++) {
-                        returnData.push(documents[i].toJSON());
+                        returnData.push(documents[j].toJSON());
                     }
                 }
             }
