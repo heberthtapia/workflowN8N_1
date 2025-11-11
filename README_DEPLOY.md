@@ -2,6 +2,36 @@
 
 Este repositorio contiene un paquete de nodos personalizados para n8n que integra LlamaIndex / LlamaCloud. Aquí están los pasos y recomendaciones para desplegarlo en Render.
 
+## Prueba Local Rápida (antes de desplegar a Render)
+
+Si tienes Docker Desktop instalado, puedes probar la imagen localmente:
+
+```powershell
+.\docker-local-test.ps1
+```
+
+Esto construirá la imagen, la ejecutará y abrirá n8n en http://localhost:5678. Lee `DOCKER_TEST_GUIDE.md` para instrucciones detalladas.
+
+---
+
+## Despliegue a Render.com - Pasos Rápidos
+
+Para desplegar directamente a Render, ejecuta el script de guía interactiva:
+
+```powershell
+.\render-deploy-guide.ps1
+```
+
+Este script te proporciona paso a paso:
+1. Verificación previa (que todo está listo)
+2. Instrucciones detalladas para crear el servicio en Render
+3. Cómo configurar variables de entorno y secretos
+4. Verificación final
+
+Para más detalles, lee: `RENDER_DEPLOY_GUIDE.md`
+
+---
+
 Opciones de despliegue:
 
 - Opción A — Usar el `Dockerfile` incluido (recomendado si quieres controlar el contenedor exactamente):
