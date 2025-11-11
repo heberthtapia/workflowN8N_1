@@ -16,6 +16,9 @@ RUN npm install --include=dev
 COPY . .
 RUN npm run build
 
+# Copiar iconos (SVG/PNG) a dist/
+RUN npx gulp build:icons
+
 #########################################
 # Stage 2: runtime (imagen oficial de n8n)
 #########################################
@@ -40,4 +43,4 @@ RUN npm ci --omit=dev --no-audit --prefer-offline
 RUN chown -R node:node /home/node/.n8n/
 USER node
 
-# Nota: la imagen final contiene dist/ y sólo dependencias de producción en /home/node/.n8n/custom
+# Nota: la imagen final contiene dist/ (con iconos) y sólo dependencias de producción en /home/node/.n8n/custom
