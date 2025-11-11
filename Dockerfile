@@ -16,8 +16,7 @@ RUN npm install --include=dev
 COPY . .
 RUN npm run build
 
-# Copiar iconos (SVG/PNG) a dist/
-RUN npx gulp build:icons
+# Los iconos se copian automáticamente vía postbuild hook en package.json
 
 #########################################
 # Stage 2: runtime (imagen oficial de n8n)
