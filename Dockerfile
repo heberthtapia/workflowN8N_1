@@ -18,6 +18,11 @@ RUN npm run build
 
 # Los iconos se copian automáticamente vía postbuild hook en package.json
 
+# --- DIAGNÓSTICO: listar contenido de dist para los logs de build (Render) ---
+RUN echo "--- DIST root ---" && ls -la /usr/src/app/dist || true
+RUN echo "--- DIST nodes ---" && ls -la /usr/src/app/dist/nodes || true
+RUN echo "--- DIST LlamaCloud ---" && ls -la /usr/src/app/dist/nodes/LlamaCloud || true
+
 #########################################
 # Stage 2: runtime (imagen oficial de n8n)
 #########################################
